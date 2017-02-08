@@ -18,6 +18,12 @@ class UserDao {
 		
 	}
 	
+	def getUserList(){
+		
+		this.userList
+		
+	}
+	
 	def find(id){
 		User u
 		this.userList.each { User ->
@@ -26,13 +32,14 @@ class UserDao {
 		u
 	}
 	
-//	def createUser(name,firstName){
-//		
-//		User u = new User(countEntries, name, firstName)
-//		
-//		this.userList
-//		
-//		
-//	}
+	def createUser(name,firstName){
+		
+		User u = new User(countEntries, name, firstName)
+		countEntries++
+		
+		find(countEntries-1)
+		
+		
+	}
 	
 }

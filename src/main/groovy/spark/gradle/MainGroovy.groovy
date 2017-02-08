@@ -6,6 +6,7 @@ import groovy.json.JsonBuilder
 
 service = new UserService()
 
+port(7777)
 get '/users', { req, res -> 
 	res.type("application/json")
 	service.getAllUsers() }
@@ -18,7 +19,8 @@ get '/user/:id', { req, res ->
 		}
 }
 
-//post '/users', { req, res -> 
-//	service.createUser(req.params(":name"),req.params(":firstName"))	
-//}
+post '/users', { req, res -> 
+	service.createUser(req.params(":name"),req.params(":firstName"))
+	new JsonBuilder([response: 'ok'])
+}
 

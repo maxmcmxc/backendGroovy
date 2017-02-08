@@ -49,7 +49,7 @@ class UserService {
 			
 			def getAllUsers() {
 				
-				new JsonBuilder([response: dao.userList])			
+				new JsonBuilder([response: dao.getUserList()])			
 				
 			}
 			
@@ -64,7 +64,11 @@ class UserService {
 			
 			// creates a new user
 			
-			def createUser(String name, String firstName) {  }
+			def createUser(String name, String firstName) {  
+				
+				dao.getUserList()
+				
+			}
 			
 			// updates an existing user
 			
